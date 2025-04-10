@@ -6,6 +6,6 @@
     <title>Project Pertama Saya</title>
 </head>
 <body>
-    <h1>Nama Saya Panggah</h1>
+    <h1>Semester 2</h1>
 </body>
 </html>
