@@ -8,6 +8,8 @@
 <body>
     <h2>BELAJAR CRUD MAHASISWA UIM YOGYA</h2>
     </br>
+    <!-- menghubungkan dengan file tambah.php -->
+    <a href="tambah.php">+TAMBAH MAHASISWA</a>
     <table border="1">
         <tr>
             <th>No</th>
