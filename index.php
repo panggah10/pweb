@@ -5,22 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BELAJAR CRUD PHP</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
     <h2>BELAJAR CRUD MAHASISWA UIM YOGYA</h2>
-</br>
+    </br>
     <!-- Form Pencarian -->
     <form action="" method="GET" class="mb-3">
-    <div class="input-group">
-        <input type="text" name="search" class="form-control" placeholder="Cari berdasarkan NIM atau Nama" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-        <button type="submit" class="btn btn-primary">Cari</button>
-    </div>
-</form>
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Cari berdasarkan NIM atau Nama"
+                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+            <button type="submit" class="btn btn-primary">Cari</button>
+        </div>
+    </form>
     <!-- menghubungkan dengan file tambah.php -->
 
     <a href="tambah.php">+TAMBAH MAHASISWA</a>
@@ -41,7 +42,8 @@
         $start = ($page > 1) ? ($page * $limit) - $limit : 0;
         
         // Pencarian
-        $search = isset($_GET['search']) ? mysqli_real_escape_string($koneksi, $_GET['search']) : '';
+        $search = isset($_GET['search']) ? mysqli_real_escape_string($koneksi, $_GET['search'])
+         : '';
         $where_clause = $search ? "WHERE nim LIKE '%$search%' OR nama LIKE '%$search%'" : '';
         
         // Query untuk menghitung total data
@@ -79,20 +81,23 @@
         <ul class="pagination">
             <?php if ($page > 1): ?>
             <li class="page-item">
-                <a class="page-link" href="?page=<?php echo $page - 1; ?>&search=<?php echo urlencode($search); ?>">Previous</a>
+                <a class="page-link" href="?page=<?php echo $page - 1;
+                ?>&search=<?php echo urlencode($search); ?>">Previous</a>
             </li>
             <?php endif; ?>
 
             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
             <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>">
-                <a class="page-link"
-                    href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>"><?php echo $i; ?></a>
+                <a class="page-link" href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>">
+                    <?php echo $i; ?></a>
             </li>
             <?php endfor; ?>
 
             <?php if ($page < $total_pages): ?>
             <li class="page-item">
-                <a class="page-link" href="?page=<?php echo $page + 1; ?>&search=<?php echo urlencode($search); ?>">Next</a>
+                <a class="page-link"
+                    href="?page=<?php echo $page + 1; ?>&search=
+                <?php echo urlencode($search); ?>">Next</a>
             </li>
             <?php endif; ?>
         </ul>

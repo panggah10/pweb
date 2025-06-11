@@ -11,6 +11,11 @@
     <h2>FITUR EDIT MAHASISWA UIM YOGYA</h2>
     </br>
     <?php
+      session_start();
+                if (!isset($_SESSION['username'])) {
+                    header("Location: login.php");
+                    exit;
+                }
     include 'koneksi.php'; //mengkoneksi dengan database 
     $nim = $_GET['id']; //mengambil data 'id' dari file index.php
     $data = mysqli_query($koneksi, "SELECT * from mahasiswa where nim='$nim'"); //query tampil data dari database
